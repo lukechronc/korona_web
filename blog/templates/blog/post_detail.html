@@ -18,6 +18,9 @@
             
             <h2 class="article-title">{{ object.title }}</h2>
             <p class="article-content">{{ object.content }}</p>
+            {% if post.file %}
+            <a href="{{ post.file.url }}">{{ post.file }}</a>
+            {% endif %}
         </div>
     </article>
         
