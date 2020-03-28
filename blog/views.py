@@ -29,6 +29,17 @@ class UserPostListView(ListView):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
         return Post.objects.filter(author=user).order_by('-date_posted')
         
+class SubjectPostListView(ListView):
+    model = Post
+    template_name = 'blog/subject_posts.html'
+    context_object_name = 'posts'
+    
+    paginate_by = 5
+
+    def get_queryset(self):
+        xsubject = get_object_or_404(Post, subject=self.kwargs.get('subject'))
+        print(xsubject)
+        return Post.objects.filter(subject=xsubject.subject).order_by('-date_posted')
 
 
 class PostDetailView(DetailView):
@@ -36,7 +47,7 @@ class PostDetailView(DetailView):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'content', 'file']
+    fields = ['title','subject', 'content', 'file']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -44,7 +55,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
-    fields = ['title', 'content', 'file']
+    fields = ['title', 'subject','content', 'file']
 
     def form_valid(self, form):
         form.instance.author = self.request.user

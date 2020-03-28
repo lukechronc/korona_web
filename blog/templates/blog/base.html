@@ -62,22 +62,40 @@
             </div>
             <div class="col-md-4">
                 <div class="content-section">
-                    <h3>Our Sidebar</h3>
+                    <h3>Subjects</h3>
                     <p class='text-muted'>You can put any information here you'd like.
                         <ul class="list-group">
-                            <li class="list-group-item list-group-item-light">Latest Posts</li>
-                            <li class="list-group-item list-group-item-light">Announcements</li>
-                            <li class="list-group-item list-group-item-light">Calendars</li>
-                            <li class="list-group-item list-group-item-light">etc</li>
+                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'aj' %}">Anglický jazyk</a></li>
+                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'b' %}">Biologie</a></li>
+                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'cj' %}">Český jazyk a literatura</a></li>
+                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'j' %}">Jazyky</a></li>
+                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'f' %}">Fyzika</a></li>
+                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'ch' %}">Chemie</a></li>
+                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'm' %}">Matematika</a></li>
+                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'sv' %}">Společenské vědy</a></li>
+                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'z' %}">Zeměpis</a></li>
+                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'vp' %}">Volitelné předměty</a></li>
+                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'other' %}">Ostatní</a></li>
                         </ul>
                     </p>
                 </div>
             </div>
         </div>
     </main>
+    <footer class="footer bg-steel">
+        <div class="container">
+            <a class="text-footer" href="https://github.com/lukechronc/korona_web" target="_blank"> <img src="/media/GitHub-Mark-32px.png"></a>
+            <p class="text-muted text-footer">Lukas Chronc 2020</p>
+            <p class="text-muted text-footer">GNU General Public License v3.0</p>
+        </div>
+    </footer>
+        
+        
+      
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
+
 </html>

@@ -1,21 +1,18 @@
 {% extends "blog/base.html"%}
 {% block content %}
     {% for post in posts %}
+    <h1 class="mb-3" >{{ post.get_subject_display }} ({{ page_obj.paginator.count }})</h1>
         
         <article class="media content-section">
             <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
             <div class="media-body">
             <div class="article-metadata">
                 <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
-                <small class="text-muted">{{ post.date_posted|date:"l, j. F Y" }} | </small>
+                <small class="text-muted">{{ post.date_posted|date:"l, j. F Y" }}</small>
                 <a class="text-subject" href="{% url 'subject-posts' post.subject %}">{{ post.get_subject_display }}</a>
-                
             </div>
             <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
             <p class="article-content">{{ post.content }}</p>
-            {% if post.file %}
-            <a href="{{ post.file.url }}">{{ post.file }}</a>
-            {% endif %}
             </div>
         </article>
         
