@@ -18,77 +18,86 @@
     {% endif %}
 </head>
 <body>
-    <header class="site-header">
-        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-            <div class="container">
-                <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Korona Web</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarToggle">
-                    <div class="navbar-nav mr-auto">
-                        <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
-                        <a class="nav-item nav-link" href="{% url 'blog-about' %}">Calendar</a>
-                    </div>
-                    <!-- Navbar Right Side -->
-                    <div class="navbar-nav">
-
-                        {% if user.is_authenticated %}
-                            <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
-                            <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-                            <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
-                        {% else %}
-                            <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                            <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
-                        {% endif %}
-                
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
- 
-    <main role="main" class="container">
-        <div class="row">
-            <div class="col-md-8">
-                {% if messages%}
-                    {% for message in messages %}
-                        <div class="alert-{{ message.tags }}">
-                            {{ message }}
+    <div id="page-container">
+        <div id="content-wrap">
+            <header class="site-header">
+                <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+                    <div class="container">
+                        <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Korona Web</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarToggle">
+                            <div class="navbar-nav mr-auto">
+                                <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
+                                <a class="nav-item nav-link" href="{% url 'blog-about' %}">Calendar</a>
+                            </div>
+                            <!-- Navbar Right Side -->
+                            <div class="navbar-nav">
+        
+                                {% if user.is_authenticated %}
+                                    <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
+                                    <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+                                    <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                                {% else %}
+                                    <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                                    <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                                {% endif %}
+                        
+                            </div>
                         </div>
-                    {% endfor %}
-                {% endif %}
-                {% block content %}{% endblock %}
-            </div>
-            <div class="col-md-4">
-                <div class="content-section">
-                    <h3>Subjects</h3>
-                    <p class='text-muted'>You can put any information here you'd like.
-                        <ul class="list-group">
-                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'aj' %}">Anglický jazyk</a></li>
-                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'b' %}">Biologie</a></li>
-                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'cj' %}">Český jazyk a literatura</a></li>
-                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'j' %}">Jazyky</a></li>
-                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'f' %}">Fyzika</a></li>
-                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'ch' %}">Chemie</a></li>
-                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'm' %}">Matematika</a></li>
-                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'sv' %}">Společenské vědy</a></li>
-                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'z' %}">Zeměpis</a></li>
-                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'vp' %}">Volitelné předměty</a></li>
-                            <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'other' %}">Ostatní</a></li>
-                        </ul>
-                    </p>
+                    </div>
+                </nav>
+            </header>
+         
+            <main role="main" class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        {% if messages%}
+                            {% for message in messages %}
+                                <div class="alert-{{ message.tags }}">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        {% block content %}{% endblock %}
+                    </div>
+                    <div class="col-md-4">
+                        <div class="content-section">
+                            <h3>Subjects</h3>
+                            <p class='text-muted'>You can put any information here you'd like.
+                                <ul class="list-group">
+                                    <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'aj' %}">Anglický jazyk</a></li>
+                                    <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'b' %}">Biologie</a></li>
+                                    <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'cj' %}">Český jazyk a literatura</a></li>
+                                    <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'j' %}">Jazyky</a></li>
+                                    <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'f' %}">Fyzika</a></li>
+                                    <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'ch' %}">Chemie</a></li>
+                                    <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'm' %}">Matematika</a></li>
+                                    <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'sv' %}">Společenské vědy</a></li>
+                                    <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'z' %}">Zeměpis</a></li>
+                                    <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'vp' %}">Volitelné předměty</a></li>
+                                    <li class="list-group-item list-group-item-light"><a href="{% url 'subject-posts' 'other' %}">Ostatní</a></li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </main>
+            
+                <footer id="footer">
+                    <div class="container">
+                        <a class="icon-footer" href="https://github.com/lukechronc/korona_web" target="_blank"> <img class="icon-footer-image"src="/media/github.png"></a>
+                        <p class="text-footer">Lukas Chronc 2020</p>
+                        <p class="text-footer">GNU General Public License v3.0</p>
+                    </div>
+                </footer>
         </div>
-    </main>
-    <footer class="footer bg-steel">
-        <div class="container">
-            <a class="text-footer" href="https://github.com/lukechronc/korona_web" target="_blank"> <img src="/media/GitHub-Mark-32px.png"></a>
-            <p class="text-muted text-footer">Lukas Chronc 2020</p>
-            <p class="text-muted text-footer">GNU General Public License v3.0</p>
-        </div>
-    </footer>
+    </div>
+    
+    
+    
+
         
         
       

@@ -14,6 +14,7 @@ body {
   
   .bg-steel {
     background-color:#eb984e;
+
   }
   
   .site-header .navbar-nav .nav-link {
@@ -89,10 +90,44 @@ body {
 
   .text-footer {
     float: left;
-    padding-right: 2rem;
+    
+    margin-top: 0.5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    color: rgb(255, 255, 255);
+  }
+  .icon-footer {
+    float: left;
+    height: 2rem;
+    width: 2rem;
+    
+    margin-top: 0.3rem;
+    margin-right: 1rem;
+    color: rgb(255, 255, 255);
+  }
+  .icon-footer-image {
+    height: 2rem;
+    width: 2rem;
   }
 
-  #site-footer {
-    background:orange;
+  #page-container{
+    position: relative;
+    min-height: 100vh;
   }
+
+  #content-wrap{
+    padding-bottom: 2.5rem;    /* Footer height */
+  }
+  
+  #footer {
+    display: flex;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;            /* Footer height */
+    background-color: #eb984e;
+  }
+
+
   

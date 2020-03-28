@@ -1,7 +1,8 @@
 {% extends "blog/base.html"%}
 {% block content %}
+<h1 class="mb-3" > ({{ page_obj.paginator.count }})</h1>
     {% for post in posts %}
-    <h1 class="mb-3" >{{ post.get_subject_display }} ({{ page_obj.paginator.count }})</h1>
+    
         
         <article class="media content-section">
             <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">

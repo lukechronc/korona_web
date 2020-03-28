@@ -31,15 +31,14 @@ class UserPostListView(ListView):
         
 class SubjectPostListView(ListView):
     model = Post
-    template_name = 'blog/subject_posts.html'
+    template_name = 'blog/user_posts.html'
     context_object_name = 'posts'
     
     paginate_by = 5
 
     def get_queryset(self):
-        xsubject = get_object_or_404(Post, subject=self.kwargs.get('subject'))
-        print(xsubject)
-        return Post.objects.filter(subject=xsubject.subject).order_by('-date_posted')
+        return Post.objects.filter(subject=self.kwargs.get('subject')).order_by('-date_posted')
+      
 
 
 class PostDetailView(DetailView):
