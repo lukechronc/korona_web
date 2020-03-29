@@ -23,5 +23,6 @@
 
 - set up a `STATIC_ROOT` in `korona_web/settings.py`
   - to make `korona_web/static` your `STATIC_ROOT` add `STATIC_ROOT = os.path.join(BASE_DIR,'static')` to `korona_web/settings.py`
+  - then run `python manage.py collectstatic`
 - run `python manage.py migrate` to migrate your database before running
 - set up a superuser using `python manage.py createsuperuser`
