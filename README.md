@@ -22,4 +22,4 @@
 - if you plan on using this in production change `DEBUG=False` in `korona_web/korona_web/settings.py` and set your allowed hosts to your hostname
 
 - run `python manage.py migrate` to migrate your database before running
-
+- set up a superuser using `python manage.py createsuperuser`
