@@ -1,6 +1,6 @@
 {% extends "blog/base.html"%}
 {% block content %}
-<h1 class="mb-3" > ({{ page_obj.paginator.count }})</h1>
+<h1 class="mb-3">{{ posts.first.get_subject_display }} ({{ page_obj.paginator.count }})</h1>
     {% for post in posts %}
     
         
